@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: new-possum-java-quarkus-gitops
+  description: This is GitOps manifest for new-possum-java-quarkus   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: new-possum-java-quarkus
+    janus-idp.io/tekton: new-possum-java-quarkus 
+    backstage.io/kubernetes-id: new-possum-java-quarkus 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:new-possum-java-quarkus
